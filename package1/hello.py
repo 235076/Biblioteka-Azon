@@ -1,2 +1,2 @@
 def hello():
-    print("hello world! nowsza wersja!")
+    print("hello world!")
