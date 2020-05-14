@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='Biblioteka-Azon',
-    version='0.1',
+    version='0.4',
     packages=find_packages(exclude=['tests*']),
     license='MIT',
     description='bilbioteka umozliwiajaca prace z zasbami azon',
