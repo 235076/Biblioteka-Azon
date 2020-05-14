@@ -1,0 +1,7 @@
+setup.py
+Biblioteka_Azon.egg-info/PKG-INFO
+Biblioteka_Azon.egg-info/SOURCES.txt
+Biblioteka_Azon.egg-info/dependency_links.txt
+Biblioteka_Azon.egg-info/top_level.txt
+package1/__init__.py
+package1/hello.py
