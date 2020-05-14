@@ -6,7 +6,7 @@ setup(
     packages=find_packages(exclude=['tests*']),
     license='MIT',
     description='bilbioteka umozliwiajaca prace z zasbami azon',
-    url='https://git.e-science.pl/msikorski235076_dpp/python_pip',
+    url='https://github.com/235076/Biblioteka-Azon',
     author='Mikolaj Sikorski',
     author_email='235076@student.pwr.edu.pl'
 )
