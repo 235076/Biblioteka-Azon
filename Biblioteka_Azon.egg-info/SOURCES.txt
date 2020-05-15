@@ -5,3 +5,6 @@ Biblioteka_Azon.egg-info/dependency_links.txt
 Biblioteka_Azon.egg-info/top_level.txt
 package1/__init__.py
 package1/hello.py
+package2/__init__.py
+package2/api_operations.py
+package2/bibTextClasses.py
