@@ -24,18 +24,20 @@ def get_data_type(data,api_key):
     for d in data:
         data_id = d.pk
         data_type = d.entry_type_id
+        print(data_type)
         try:
             response = requests.get("https://api.e-science.pl/api/azon/entry/"+str(data_id)+"/",
                                     headers={'X-Api-Key': api_key})
             response.raise_for_status()
             json_data = response.json()
             if data_type == 1:
+                print("guczi")
                 book = get_book(json_data)
                 data_in_type.append(book)
+            else :
+                print("ale jak to?")
         except requests.HTTPError as http_err:
             print("http error")
-
-
     return data_in_type
 
 
