@@ -41,6 +41,7 @@ def get_data_type(data, api_key):
 def get_book(json_data):
     data = {}
     item = json_data['item']
+    data['pk'] = json_data['pk']
     data['authors'] = json_data['authors']
     data['title'] = json_data['title']
     data['year'] = item['publish_time']
