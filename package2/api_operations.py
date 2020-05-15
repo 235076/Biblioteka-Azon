@@ -30,7 +30,7 @@ def get_data_type(data,api_key):
                                     headers={'X-Api-Key': api_key})
             response.raise_for_status()
             json_data = response.json()
-            if data_type is 1:
+            if data_type is '1':
                 print("guczi")
                 book = get_book(json_data)
                 data_in_type.append(book)
