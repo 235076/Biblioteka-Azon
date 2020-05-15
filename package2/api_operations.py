@@ -56,8 +56,7 @@ def get_book(json_data):
 
 class Data:
     def __init__(self, pk, title, entry_type, entry_type_id, partner,
-                 scientific_domain, authors, co_creators, attachments_number,
-                 highlight, file_result):
+                 scientific_domain, authors, co_creators, attachments_number):
         self.pk = pk
         self.title = title
         self.entry_type = entry_type
@@ -76,5 +75,3 @@ class Data:
             self.authors.append(co_creator)
 
         self.attachments_number = attachments_number
-        self.highlight = highlight
-        self.file_result = file_result
