@@ -48,7 +48,7 @@ class Book:
 
 class Phdthesis:
     def __Init__(self, pk, authors, title, school, year,
-                 typ='', month='', note=''):
+                 typ='', month='', note='', address=''):
         self.pk = pk
         for i in range(len(authors)):
             author = authors[i]['author']
@@ -64,7 +64,7 @@ class Phdthesis:
         self.typ = typ
         self.month = month
         self.note = note
-
+        self.address = address
     def to_bibtext(self):
         # wymagane
         bib = f'@phdthesis{{{self.pk},\n  author =\t"{self.authors_string}",\
