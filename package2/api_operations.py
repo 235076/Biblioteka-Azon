@@ -56,8 +56,9 @@ def get_book(json_data):
 
 
 def get_phd(json_data):
+    item = json_data['item']
     data = {'pk': json_data['pk'], 'authors': json_data['authors'], 'title': json_data['title'],
-            'school': json_data['partner'], 'year': json_data['creation_time'], 'address': json_data['creation_place'],
+            'school': json_data['partner'], 'year': item['creation_time'], 'address': json_data['creation_place'],
             'note': json_data['comments']}
     phd = bibTextClasses.Phdthesis(**data)
     return phd
