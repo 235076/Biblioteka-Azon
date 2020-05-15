@@ -47,7 +47,7 @@ class Book:
 
 
 class Phdthesis:
-    def __Init__(self, pk, authors, title, school, year,
+    def __init__(self, pk, authors, title, school, year,
                  typ='', month='', note='', address=''):
         self.pk = pk
         for i in range(len(authors)):
