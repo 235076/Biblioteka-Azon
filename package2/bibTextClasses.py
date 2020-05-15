@@ -1,6 +1,6 @@
 
 class Book:
-    def __init__(self, pk, authors, title, publisher, year, volume='',
+    def __init__(self,pk, authors, title, publisher, year, volume='',
                  series='', address='', edition='', month='', note='', isbn=''):
         self.pk = pk
         self.authors = []
@@ -10,7 +10,7 @@ class Book:
         self.authors_string = ''
         for i in range(len(self.authors)):
             self.authors_string += self.authors[i]
-            if i != len(self.authors) - 1:
+            if(i != len(self.authors) - 1):
                 self.authors_string += ', '
         self.title = title
         self.publisher = publisher
@@ -26,7 +26,7 @@ class Book:
 
     def to_bibtext(self):
         #niezbedne
-        bib = f'@book{{,\n  author =\t"{self.authors_string}", \
+        bib = f'@book{{{self.pk},\n  author =\t"{self.authors_string}", \
             \n  title =\t"{self.title}",\n  publisher =\t"{self.publisher}", \
             \n  year =\t{self.year},'
         #opcjonalne

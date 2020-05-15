@@ -24,7 +24,6 @@ def get_data_type(data, api_key):
     for d in data:
         data_id = d.pk
         data_type = d.entry_type_id
-        print(data_type)
         try:
             response = requests.get("https://api.e-science.pl/api/azon/entry/" + str(data_id) + "/",
                                     headers={'X-Api-Key': api_key})
