@@ -1,6 +1,5 @@
-
 class Book:
-    def __init__(self,pk, authors, title, publisher, year, volume='',
+    def __init__(self, pk, authors, title, publisher, year, volume='',
                  series='', address='', edition='', month='', note='', isbn=''):
         self.pk = pk
         self.authors = []
@@ -10,7 +9,7 @@ class Book:
         self.authors_string = ''
         for i in range(len(self.authors)):
             self.authors_string += self.authors[i]
-            if(i != len(self.authors) - 1):
+            if (i != len(self.authors) - 1):
                 self.authors_string += ', '
         self.title = title
         self.publisher = publisher
@@ -23,26 +22,51 @@ class Book:
         self.note = note
         self.isbn = isbn
 
-
     def to_bibtext(self):
-        #niezbedne
+        # niezbedne
         bib = f'@book{{{self.pk},\n  author =\t"{self.authors_string}", \
             \n  title =\t"{self.title}",\n  publisher =\t"{self.publisher}", \
             \n  year =\t{self.year},'
-        #opcjonalne
-        if(self.volume != '' and self.volume is not None):
+        # opcjonalne
+        if self.volume != '' and self.volume is not None:
             bib += f'\n  volume =\t"{self.volume}",'
-        if(self.series != '' and self.series is not None):
+        if self.series != '' and self.series is not None:
             bib += f'\n  series =\t"{self.series}",'
-        if(self.address != '' and self.address is not None):
+        if self.address != '' and self.address is not None:
             bib += f'\n  address =\t"{self.address}",'
-        if(self.edition != '' and self.edition is not None):
+        if self.edition != '' and self.edition is not None:
             bib += f'\n  edition =\t"{self.edition}",'
-        if(self.month != '' and self.month is not None):
+        if self.month != '' and self.month is not None:
             bib += f'\n  month =\t{self.month},'
-        if(self.note != '' and self.note is not None):
+        if self.note != '' and self.note is not None:
             bib += f'\n  note =\t"{self.note}",'
-        if(self.isbn != '' and self.isbn is not None):
+        if self.isbn != '' and self.isbn is not None:
             bib += f'\n  isbn =\t"{self.isbn}",'
-        bib = bib+'\n}\n'
+        bib = bib + '\n}\n'
+        return bib
+
+
+class Phdthesis:
+    def __Init__(self, pk, author, title, school, year,
+                 typ='', month='', note=''):
+        self.pk = pk
+        self.author = author
+        self.title = title
+        self.school = school
+        self.year = year
+        self.typ = typ
+        self.month = month
+        self.note = note
+
+    def to_bibtext(self):
+        # wymagane
+        bib = f'@phdthesis{{{self.pk},\n  author =\t"{self.authors_string}",\
+                        \n  title =\t"{self.title}",\n  school =\t"{self.school}",\
+                        \n  year =\t{self.year},'
+        # opcjonalne
+        if self.address != '' and self.address is not None:
+            bib += f'\n  address =\t"{self.address}",'
+        if self.note != '' and self.note is not None:
+            bib += f'\n  note =\t"{self.note}",'
+        bib = bib + '\n}\n'
         return bib

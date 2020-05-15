@@ -2,15 +2,7 @@ import requests
 
 from package2 import bibTextClasses
 
-def check_data_types(api_key):
-    try:
-        response = requests.get("https://api.e-science.pl/api/azon/entry/types/index/",
-                                headers={'X-Api-Key': api_key})
-        response.raise_for_status()
-        json_data = response.json()
-        return json_data
-    except requests.HTTPError as http_err:
-        print('http error')
+
 def author_data_by_id(api_key, id):
     try:
         response = requests.get("https://api.e-science.pl/api/azon/authors/entries/" + str(id) + "/",
@@ -40,26 +32,30 @@ def get_data_type(data, api_key):
             if data_type is '1':
                 book = get_book(json_data)
                 data_in_type.append(book)
+            if data_type is '4':
+                phd = get_phd(json_data)
+                data_in_type.append(phd)
         except requests.HTTPError as http_err:
             print("http error")
     return data_in_type
 
 
 def get_book(json_data):
-    data = {}
     item = json_data['item']
-    data['pk'] = json_data['pk']
-    data['authors'] = json_data['authors']
-    data['title'] = json_data['title']
-    data['year'] = item['publish_time']
-    data['publisher'] = item['publisher']
-    data['isbn'] = item['isbn']
-    data['note'] = json_data['comments']
-    data['address'] = item['publish_place']
-    data['edition'] = item['numeration']
-    data['series'] = item['series_name']
+    data = {'pk': json_data['pk'], 'authors': json_data['authors'], 'title': json_data['title'],
+            'year': item['publish_time'], 'publisher': item['publisher'], 'isbn': item['isbn'],
+            'note': json_data['comments'], 'address': item['publish_place'], 'edition': item['numeration'],
+            'series': item['series_name']}
     book = bibTextClasses.Book(**data)
     return book
+
+
+def get_phd(json_data):
+    data = {'pk': json_data['pk'], 'authors': json_data['authors'], 'title': json_data['title'],
+            'school': json_data['partner'], 'year': json_data['creation_time'], 'address': json_data['creation_place'],
+            'note': json_data['comments']}
+    phd = bibTextClasses.Phdthesis(**data)
+    return phd
 
 
 class Data:
