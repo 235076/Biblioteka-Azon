@@ -25,8 +25,8 @@ def get_data_type(data,api_key):
         data_id = d.pk
         data_type = d.entry_type_id
         try:
-            response = requests.get("https://api.e-science.pl/api/azon\
-                /entry/"+str(data_id)+"/", headers={'X-Api-Key': api_key})
+            response = requests.get("https://api.e-science.pl/api/azon/entry/"+str(data_id)+"/",
+                                    headers={'X-Api-Key': api_key})
             response.raise_for_status()
             json_data = response.json()
             if data_type == 1:
