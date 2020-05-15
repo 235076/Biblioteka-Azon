@@ -9,7 +9,7 @@ class Book:
         self.authors_string = ''
         for i in range(len(self.authors)):
             self.authors_string += self.authors[i]
-            if (i != len(self.authors) - 1):
+            if i != len(self.authors) - 1:
                 self.authors_string += ', '
         self.title = title
         self.publisher = publisher
@@ -50,13 +50,14 @@ class Phdthesis:
     def __init__(self, pk, authors, title, school, year,
                  typ='', month='', note='', address=''):
         self.pk = pk
+        self.authors = []
         for i in range(len(authors)):
             author = authors[i]['author']
             self.authors.append(author)
         self.authors_string = ''
         for i in range(len(self.authors)):
             self.authors_string += self.authors[i]
-            if (i != len(self.authors) - 1):
+            if i != len(self.authors) - 1:
                 self.authors_string += ', '
         self.title = title
         self.school = school
