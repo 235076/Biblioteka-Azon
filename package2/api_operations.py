@@ -8,12 +8,7 @@ def check_data_types(api_key):
                                 headers={'X-Api-Key': api_key})
         response.raise_for_status()
         json_data = response.json()
-        kod = json_data["code"]
-        nazwa = json_data["name"]
-        ilosc = json_data["count"]
-        for i in range(len(kod)):
-            result = "Kod: " + str(kod[i]) + ", nazwa: " + str(nazwa[i]) + ", ilosc: " + str(ilosc[i]) + "\n"
-        return result
+        return json_data
     except requests.HTTPError as http_err:
         print('http error')
 def author_data_by_id(api_key, id):
