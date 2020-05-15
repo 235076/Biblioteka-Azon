@@ -4,7 +4,7 @@ from package2 import bibTextClasses
 
 def check_data_types(api_key):
     try:
-        response = requests.get("https://api.e-science.pl/api/azon/entry/types/index/" + str(id) + "/",
+        response = requests.get("https://api.e-science.pl/api/azon/entry/types/index/",
                                 headers={'X-Api-Key': api_key})
         response.raise_for_status()
         json_data = response.json()
