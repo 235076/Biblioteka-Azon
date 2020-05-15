@@ -1,5 +1,4 @@
 import requests
-import time
 from package2 import bibTextClasses
 
 
@@ -22,7 +21,6 @@ def author_data_by_id(api_key, id):
 def get_data_type(data, api_key):
     data_in_type = []
     for d in data:
-        time.sleep(1)
         data_id = d.pk
         data_type = d.entry_type_id
         try:

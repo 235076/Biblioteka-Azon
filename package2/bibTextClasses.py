@@ -47,10 +47,17 @@ class Book:
 
 
 class Phdthesis:
-    def __Init__(self, pk, author, title, school, year,
+    def __Init__(self, pk, authors, title, school, year,
                  typ='', month='', note=''):
         self.pk = pk
-        self.author = author
+        for i in range(len(authors)):
+            author = authors[i]['author']
+            self.authors.append(author)
+        self.authors_string = ''
+        for i in range(len(self.authors)):
+            self.authors_string += self.authors[i]
+            if (i != len(self.authors) - 1):
+                self.authors_string += ', '
         self.title = title
         self.school = school
         self.year = year
